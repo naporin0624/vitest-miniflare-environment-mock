@@ -1,0 +1,11 @@
+name = "service-bindings-testing"
+main = "src/index.ts"
+compatibility_date = "2023-01-01"
+
+services = [
+  { binding = "SELF_SERVICE", service = "service-bindings-testing", environment = "production" },
+  { binding = "GATEWAY", service = "gateway", environment = "production" }
+]
+
+[miniflare.mounts]
+gateway = "./gateway/src"
