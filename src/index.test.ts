@@ -29,7 +29,9 @@ describe("self service bindings", () => {
 
   it("/external", async () => {
     const example = mockAgent.get("https://example.com");
-    example.intercept({ method: "GET", path: "/" }).reply(200, "Hello External Hono!");
+    example
+      .intercept({ method: "GET", path: "/" })
+      .reply(200, "Hello External Hono!");
 
     const req = new Request("http://localhost/external");
     const res = await app.fetch(req, bindings);
